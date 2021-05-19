@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TweetService } from 'src/app/services/tweet/tweet.service';
 import { NgForm } from '@angular/forms';
 
@@ -12,6 +12,8 @@ export class TweetFormComponent implements OnInit {
   tweet:any = {
     content:''
   }
+
+  @Output() tweeted: EventEmitter<any> = new EventEmitter<any>();
   constructor(private tweetService:TweetService) { }
 
   ngOnInit(): void {
@@ -26,11 +28,12 @@ export class TweetFormComponent implements OnInit {
 
     this.tweetService.makeTweet(this.tweet.content).subscribe((res)=> {
       console.log(res)
+      this.tweeted.emit(res)
     })
 
     
 
-    console.log(this.tweet)
+  
   }
 
 }

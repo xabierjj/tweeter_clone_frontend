@@ -8,7 +8,7 @@ import { TweetService } from 'src/app/services/tweet/tweet.service';
 })
 export class HomeComponent implements OnInit {
 
-  tweets:any
+  tweets:Array<any>
   offset:number=0
   username:string=''
   constructor(private tweetService: TweetService ) { }
@@ -24,6 +24,15 @@ export class HomeComponent implements OnInit {
     }, (err)=> {
       console.error(err)
     })
+  }
+
+
+  addTweet(tweet) {
+
+    this.tweets.unshift(tweet)
+  
+
+
   }
 
 }
