@@ -1,0 +1,19 @@
+<div class=" h-100 d-flex justify-content-center align-items-center">
+    <div class="card">
+        <div class="card-header">
+            <h3>Login</h3>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onSubmit(f)" #f= "ngForm" > 
+
+                <input type="text" placeholder="Enter your username" [(ngModel)]="user.username"  name="username"  />
+                <hr>
+                <input type="password" placeholder="Enter your passowrd" [(ngModel)]="user.password" name="password" />
+                <hr>
+                <input type="submit" value="login" />
+
+            </form>
+        </div>
+
+    </div>
+</div>

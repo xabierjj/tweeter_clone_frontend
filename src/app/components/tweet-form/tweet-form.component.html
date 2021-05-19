@@ -1,0 +1,25 @@
+<div class="card mt-1">
+
+    <div class="card-body">
+
+        <h5 class="card-title"></h5>
+
+
+
+        <form class="from"  (ngSubmit)="onSubmit(f)" #f= "ngForm">
+            <div class="form-grou row">
+                <textarea [(ngModel)]="tweet.content" name="content"  style="width: 100%;" rows="3" class="forrm-group"></textarea>
+
+            </div>
+            <hr>
+            <div class="form-grou row">
+                <input  type="submit" name="submit" class="btn btn-primary" value="Tweet">
+
+            </div>
+        </form>
+
+
+
+    </div>
+
+</div>

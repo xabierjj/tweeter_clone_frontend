@@ -1,0 +1,14 @@
+
+.dropdown {
+  position: absolute;
+ 
+}
+
+.dropdown-item  {
+  overflow: hidden;
+    position: absolute;
+    color: black;
+    left: 0;
+    top: 100%;
+    z-index: 3;
+}

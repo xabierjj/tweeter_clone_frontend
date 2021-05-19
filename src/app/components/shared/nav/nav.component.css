@@ -1,0 +1,17 @@
+nav {
+    overflow: hidden;
+}
+
+.logout-link {
+   
+    color: white;
+}
+
+.logout-link:hover {
+   
+    color: lightblue;
+    font-weight: bold;
+    cursor: pointer;
+  
+}
+

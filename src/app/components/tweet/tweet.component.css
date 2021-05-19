@@ -1,0 +1,21 @@
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.content-info {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content-info-item {
+    padding: 0.5rem;
+}
+
+.content-info-item:hover {
+    border-radius: 50%;
+    border:0.5px solid grey;
+
+    
+}

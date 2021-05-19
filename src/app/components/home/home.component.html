@@ -1,0 +1,8 @@
+<section>
+    <app-nav [username]="username"></app-nav>
+
+    <div class="container">
+        <app-tweet-form></app-tweet-form>
+        <app-tweet [tweet]="tweet" *ngFor="let tweet of tweets"></app-tweet>
+    </div>
+</section>
