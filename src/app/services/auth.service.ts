@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { JwtHelperService } from "@auth0/angular-jwt";
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +33,10 @@ export class AuthService {
     }
    }
     saveToken(token: string, username:string): void {
+      const helper = new JwtHelperService();
+
+      const decodedToken = helper.decodeToken(token);
+      console.log(decodedToken)
     localStorage.setItem("token", token);
     localStorage.setItem("username", username);
    

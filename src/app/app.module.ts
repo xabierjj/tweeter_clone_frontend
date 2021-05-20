@@ -10,8 +10,10 @@ import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { TweetComponent } from './components/tweet/tweet.component';
 import { AuthGuard } from './guard/auth.guard';
+import { AdminGuard } from './guard/admin.guard';
 import { SearchComponent } from './components/shared/search/search.component';
 import { TweetFormComponent } from './components/tweet-form/tweet-form.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { TweetFormComponent } from './components/tweet-form/tweet-form.component
     NavComponent,
     TweetComponent,
     SearchComponent,
-    TweetFormComponent
+    TweetFormComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { TweetFormComponent } from './components/tweet-form/tweet-form.component
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService,AuthGuard ],
+  providers: [AuthService,AuthGuard ,AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
