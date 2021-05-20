@@ -15,7 +15,8 @@ import { SearchComponent } from './components/shared/search/search.component';
 import { TweetFormComponent } from './components/tweet-form/tweet-form.component';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { JwtInterceptorService } from './interceptors/jwt-interceptor.service';
-
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { FeedComponent } from './components/feed/feed.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,15 @@ import { JwtInterceptorService } from './interceptors/jwt-interceptor.service';
     TweetComponent,
     SearchComponent,
     TweetFormComponent,
-    DashboardComponent
+    DashboardComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule ,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    InfiniteScrollModule
   ],
   //sin multi:true da error
   providers: [AuthService,AuthGuard ,AdminGuard ,{
