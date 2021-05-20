@@ -12,13 +12,6 @@ export class UserService {
 
 
   searchUser(term: string): Observable<any> {
-
-    let token = localStorage.getItem("token")
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    headers = headers.set('Authorization', `Bearer ${token}`);
-    return this.http.get(`${this.url}/search?t=${term}`,{
-      headers:headers
-    })
+    return this.http.get(`${this.url}/search?t=${term}`)
   }
 }

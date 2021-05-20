@@ -13,26 +13,14 @@ export class TweetService {
 
   getFeed(offset: number): Observable<any> {
 
-    let token = localStorage.getItem("token")
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    headers = headers.set('Authorization', `Bearer ${token}`);
-
-    return this.http.get(`${this.url}/feed/${offset}`, {
-      headers:headers
-    })
+    return this.http.get(`${this.url}/feed/${offset}`)
 
   }
 
   makeTweet(content:string) {
     let token = localStorage.getItem("token")
-    console.log(token)
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
-    headers = headers.set('Authorization', `Bearer ${token}`);
 
-    return this.http.post(`${this.url}`,{content},{
-      headers:headers
-    })
+
+    return this.http.post(`${this.url}`,{content})
   }
 }

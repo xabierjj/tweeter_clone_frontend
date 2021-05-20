@@ -43,7 +43,7 @@ export class AuthService {
     this.token = token;
   }
 
-  private getToken(): string {
+   getToken(): string {
     if (!this.token) {
       this.token = localStorage.getItem("token");
     }
