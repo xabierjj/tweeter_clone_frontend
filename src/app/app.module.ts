@@ -17,6 +17,14 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 import { JwtInterceptorService } from './interceptors/jwt-interceptor.service';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { FeedComponent } from './components/feed/feed.component';
+import {NgxsModule}from '@ngxs/store'
+import { NgbModule , NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
+
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { UserListComponent } from './components/admin/user-list/user-list.component';
+import { UserState } from './store/user.state';
 
 @NgModule({
   declarations: [
@@ -28,14 +36,19 @@ import { FeedComponent } from './components/feed/feed.component';
     SearchComponent,
     TweetFormComponent,
     DashboardComponent,
-    FeedComponent
+    FeedComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule ,
     HttpClientModule,
     FormsModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    NgxsModule.forRoot( [UserState]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
+    NgbModule,
   ],
   //sin multi:true da error
   providers: [AuthService,AuthGuard ,AdminGuard ,{
