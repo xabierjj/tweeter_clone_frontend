@@ -25,6 +25,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { UserState } from './store/user.state';
+import { UserFormComponent } from './components/admin/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UserState } from './store/user.state';
     TweetFormComponent,
     DashboardComponent,
     FeedComponent,
-    UserListComponent
+    UserListComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

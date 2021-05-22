@@ -5,7 +5,7 @@ import { User } from "./user.state"
 
 export class addUser {
     static readonly type ="[USER] add"
-    constructor(public payload: User) {
+    constructor(public payload: any) {
         
     }
 }

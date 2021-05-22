@@ -57,6 +57,45 @@ export class UserState {
         })
 
     }
+
+    @Action(updateUser)
+    update({getState, patchState}: StateContext<UsersStateModel>, action: updateUser) {
+
+        this.userService.updateUser(action.payload).subscribe( (res)=> {
+            console.log(res)
+
+            const state = getState()
+            patchState( {
+                users: state.users.map( (user)=> {
+                    if (user.id == action.payload.id) {
+                        return action.payload
+                    }else {
+                        return user
+                    }
+                })
+            })
+        })
+    }
+
+    @Action(addUser)
+    add( {getState, patchState}:StateContext<UsersStateModel>, action:addUser ) {
+        this.userService.saveUser(action.payload).subscribe( (res)=> {
+            console.table(res)
+            const user= {
+                id:res['id'],
+                username:res['username'],
+                mail:res['mail']
+
+             }
+             const state =getState()
+             patchState({
+                 users: [user,...state.users]
+             })
+        })
+    }
+
+
+
     @Action(setSelectedUser)
     set( {getState, patchState}: StateContext<UsersStateModel>, action: setSelectedUser ) {
         const state = getState()
@@ -79,24 +118,7 @@ export class UserState {
         })
     }
 
-    @Action(updateUser)
-    update({getState, patchState}: StateContext<UsersStateModel>, action: updateUser) {
-
-        this.userService.updateUser(action.payload).subscribe( (res)=> {
-            console.log(res)
-
-            const state = getState()
-            patchState( {
-                users: state.users.map( (user)=> {
-                    if (user.id == action.payload.id) {
-                        return action.payload
-                    }else {
-                        return user
-                    }
-                })
-            })
-        })
-    }
+    
     // @Action(addUser)
     // add( {getState, patchState}: StateContext<UsersStateModel> , action:addUser  ) {
 
@@ -114,5 +136,5 @@ export class UsersStateModel {
 export interface User {
     id:number,
     username:string,
-    email:string
+    mail:string
 }
