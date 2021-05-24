@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    
   }
 
   search() {

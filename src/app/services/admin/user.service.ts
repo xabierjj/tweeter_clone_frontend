@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private url: string = "http://127.0.0.1:8080/admin"
+  private url: string = "/api/admin"
   constructor(private http: HttpClient) {
 
   }

@@ -8,7 +8,7 @@
 
         <form class="from"  (ngSubmit)="onSubmit(f)" #f= "ngForm">
             <div class="form-grou row">
-                <textarea [(ngModel)]="tweet.content" name="content"  style="width: 100%;" rows="3" class="forrm-group"></textarea>
+                <textarea [(ngModel)]="tweet.content" name="content"  style="width: 100%;" rows="3" class="forrm-group" required></textarea>
 
             </div>
             <hr>

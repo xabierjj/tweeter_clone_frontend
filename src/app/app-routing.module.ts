@@ -5,6 +5,7 @@ import {HomeComponent} from './components/home/home.component';
 import { AuthGuard } from './guard/auth.guard';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { AdminGuard } from './guard/admin.guard';
+import { JwtGuard } from './guard/jwt.guard';
 
 const routes: Routes = [
   {path:'login' , component:LoginComponent },

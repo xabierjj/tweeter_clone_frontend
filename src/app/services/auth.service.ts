@@ -7,7 +7,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 })
 export class AuthService {
 
-  private url: string = 'http://127.0.0.1:8080/api'
+  private url: string = '/api'
   private token:string=''
   constructor(private http:HttpClient) { 
 
@@ -16,6 +16,10 @@ export class AuthService {
   authenticate(user:any): Observable<any>  {
     console.log(user)
     return this.http.post(`${this.url}/authenticate`, user)
+  }
+  refreshToken(): Observable<Object>  {
+    
+    return this.http.get(`${this.url}/refreshtoken`)
   }
 
   logout(): void {

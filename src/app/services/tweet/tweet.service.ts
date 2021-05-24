@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TweetService {
-  private url: string = 'http://127.0.0.1:8080/api/tweet'
+  private url: string = '/api/tweet'
 
   constructor(private http: HttpClient) {
 

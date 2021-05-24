@@ -26,6 +26,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { UserState } from './store/user.state';
 import { UserFormComponent } from './components/admin/user-form/user-form.component';
+import { AuthState } from './store/auth.state';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { UserFormComponent } from './components/admin/user-form/user-form.compon
     HttpClientModule,
     FormsModule,
     InfiniteScrollModule,
-    NgxsModule.forRoot( [UserState]),
+    NgxsModule.forRoot( [UserState, AuthState]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     NgbModule,
