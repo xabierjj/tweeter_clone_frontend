@@ -1,9 +1,10 @@
+import { Auth } from "./auth.state"
 
 
 
 export class addToken  {
     static readonly type ="[AUTH] add"
-    constructor( public payload: String) {
+    constructor( public payload: Auth) {
 
     }
 }

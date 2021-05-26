@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Action, Select,Selector,State, StateContext} from '@ngxs/store'
+import { Action, Select, Selector, State, StateContext } from '@ngxs/store'
 import { addToken, removeToken } from './auth.actions'
 
 
-@State( {
-    name:"auth",
+@State({
+    name: "auth",
     defaults: {
-        token : null
+        auth: null
 
     }
 })
@@ -14,36 +14,49 @@ import { addToken, removeToken } from './auth.actions'
 export class AuthState {
 
     @Selector()
-    static getToken(authState:AuthStateModel){
-        return authState.token
+    static getToken(authState: AuthStateModel) {
+        return authState.auth.token
+    }
+    @Selector()
+    static getUsername(authState: AuthStateModel) {
+        return authState.auth.username
     }
 
-
     @Action(addToken)
-    public addToken( {patchState}:StateContext<AuthStateModel>, action: addToken  ){
+    public addToken({ patchState }: StateContext<AuthStateModel>, action: addToken) {
 
-        patchState( {
-            token: action.payload
+        patchState({
+
+            auth: action.payload
+
         })
 
     }
 
     @Action(removeToken)
-    public removeToken( {patchState}:StateContext<AuthStateModel>, action: removeToken  ){
+    public removeToken({ patchState }: StateContext<AuthStateModel>, action: removeToken) {
 
-        patchState( {
-            token: null
+        patchState({
+            auth: null
         })
 
     }
 
-    
+
 
 }
 
 
 export class AuthStateModel {
 
-    token:String
+    auth: Auth
+
 }
+
+export interface Auth {
+    token: string
+    username: string
+}
+
+
 

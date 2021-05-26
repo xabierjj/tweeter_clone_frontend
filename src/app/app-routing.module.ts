@@ -9,8 +9,8 @@ import { JwtGuard } from './guard/jwt.guard';
 
 const routes: Routes = [
   {path:'login' , component:LoginComponent },
-  {path:'home' , component:HomeComponent, canActivate: [AuthGuard] }, 
-  {path:'admin' , component: DashboardComponent , canActivate: [AuthGuard,AdminGuard]},
+  {path:'home' , component:HomeComponent, canActivate: [JwtGuard] }, 
+  {path:'admin' , component: DashboardComponent , canActivate: [JwtGuard,AdminGuard]},
   {path: '**', pathMatch: 'full' , redirectTo:'home'},
 ];
 

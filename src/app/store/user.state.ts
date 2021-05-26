@@ -34,7 +34,7 @@ export class UserState {
 
     @Action(getUsers)
     get( {getState, patchState}: StateContext<UsersStateModel> , action:getUsers  ) {
-        console.log("ACCCIOOON")
+      
         this.userService.getUsers(action.payload).subscribe( (res)=> {
            
             patchState( {
@@ -47,7 +47,6 @@ export class UserState {
     remove( {getState, patchState}: StateContext<UsersStateModel> , action:removeUser  ) {
 
         this.userService.removeUser(action.payload).subscribe((res)=> {
-            console.log(res)
             const state = getState()
             patchState( {
                 users:state.users.filter( user=>user.id!=action.payload )
@@ -62,7 +61,7 @@ export class UserState {
     update({getState, patchState}: StateContext<UsersStateModel>, action: updateUser) {
 
         this.userService.updateUser(action.payload).subscribe( (res)=> {
-            console.log(res)
+         
 
             const state = getState()
             patchState( {
@@ -80,7 +79,7 @@ export class UserState {
     @Action(addUser)
     add( {getState, patchState}:StateContext<UsersStateModel>, action:addUser ) {
         this.userService.saveUser(action.payload).subscribe( (res)=> {
-            console.table(res)
+           
             const user= {
                 id:res['id'],
                 username:res['username'],
@@ -99,8 +98,7 @@ export class UserState {
     @Action(setSelectedUser)
     set( {getState, patchState}: StateContext<UsersStateModel>, action: setSelectedUser ) {
         const state = getState()
-        console.error(action.payload)
-        console.error(state.users.find( user=> user.id== action.payload))
+        
         const user = state.users.find( user=> user.id== action.payload)
  
       

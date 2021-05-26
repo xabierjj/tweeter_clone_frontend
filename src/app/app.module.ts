@@ -27,6 +27,7 @@ import { UserListComponent } from './components/admin/user-list/user-list.compon
 import { UserState } from './store/user.state';
 import { UserFormComponent } from './components/admin/user-form/user-form.component';
 import { AuthState } from './store/auth.state';
+import { JwtGuard } from './guard/jwt.guard';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { AuthState } from './store/auth.state';
     NgbModule,
   ],
   //sin multi:true da error
-  providers: [AuthService,AuthGuard ,AdminGuard ,{
+  providers: [AuthService,AuthGuard ,AdminGuard,JwtGuard ,{
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptorService,
     multi:true
